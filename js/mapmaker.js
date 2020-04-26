@@ -5,9 +5,9 @@ window.addEventListener('load', function() {
     window.map = new mapboxgl.Map({
         container: 'map',
         style: 'mapbox://styles/mapbox/dark-v10',
-        center: [-98.40788, 28.49071],
+        center: [-98, 37],
         zoom: 3.5,
-        pitch: 65.00,
+        pitch: 40.00,
         bearing: 0
         // scrollZoom: false,
         // transformRequest: transformRequest
@@ -17,7 +17,14 @@ window.addEventListener('load', function() {
     window.map.addControl(new mapboxgl.NavigationControl());
 
     window.map.on('load', function() {
-        addPrecipData();
+        // initialize all the data layers
+        for (var i=0; i <= 28; i++) {
+            var index = String(i);
+            var data = DATA[index]['data'];
+            initializePrecipData(data, index);
+        }
+        // initialize first layer
+        showData('0');
     });
 
     document.getElementById('neworleans').onclick = function() {

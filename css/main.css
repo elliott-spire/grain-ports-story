@@ -14,11 +14,13 @@ html {
     background: linear-gradient(#36455b, #283446);*/
 }
 
-#linechart canvas {
+#linechart {
 	display: inline-block;
-	width: 80%;
+	width: 90%;
+}
+
+#linechart canvas {
 	margin-top: 20px;
-	padding: 10px;
     -moz-user-select: none;
     -webkit-user-select: none;
     -ms-user-select: none;
@@ -73,10 +75,16 @@ b {
 	border: 1px solid rgba(20,20,20,1);
 }
 
+#timedisplay {
+	color: #FFFFFF;
+	margin-top: 20px;
+	font-family: monospace;
+	font-size: 200%;
+}
+
 .slider {
 	-webkit-appearance: none;
-	width: 80%;
-	margin-top: 20px;
+	width: 70%;
 	height: 20px;
 	border-radius: 10px;
 	background: #283446; /* Fallback */

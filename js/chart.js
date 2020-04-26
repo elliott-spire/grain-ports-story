@@ -51,7 +51,9 @@ var config = {
         responsive: true,
         title: {
             display: true,
-            text: 'Average Precipitation in Region (mm)'
+            text: 'Average Regional Precipitation (mm)',
+            // fontColor: '#FFF',
+            fontSize: 16
         },
     }
 };
