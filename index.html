@@ -4,16 +4,20 @@
 		<title>Grain Ports Weather</title>
 		<meta charset='utf-8'>
 		<meta name='viewport' content='width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0'>
-		<!-- <link rel='icon' href='img/favicon.ico'> -->
+		<link rel='icon' href='img/spire_symb_red.png'>
 		<link rel='stylesheet' type='text/css' href='css/main.css'>
 		<link rel='stylesheet' type='text/css' href='lib/mapbox-gl-v1.5.0.css'>
 		<script src='lib/mapbox-gl-v1.5.0.js'></script>
+		<script src='lib/Chart-2.8.0.min.js'></script>
+		<script src='lib/Chart-util-latest.js'></script>
 		<script src='data/data.js'></script>
-		<script src='js/onload.js'></script>
+		<script src='data/means.js'></script>
+		<script src='js/mapmaker.js'></script>
 		<script src='js/addprecip.js'></script>
+		<script src='js/chart.js'></script>
 	</head>
 	<body>
-		<a id='logo' href='https://spire.com/weather/' target='_blank' title='Spire Global'></a>
+		<!-- <a id='logo' href='https://spire.com/weather/' target='_blank' title='Spire Global'></a> -->
 		<div id='container'>
 			<div id='map'></div>
 			<br>
@@ -26,7 +30,13 @@
 				<button id='portland'>Portland</button>
 			</div>
 			<br>
-			<input id='slider' type='range' min='1' max='29' value='1' class='slider'>
+			<div id='time'></div>
+			<br>
+			<input id='slider' class='slider' type='range' min='1' max='29' value='1'>
+			<br>
+			<div id='linechart'>
+				<canvas id='canvas'></canvas>
+			</div>
 		</div>
 	</body>
 </html>

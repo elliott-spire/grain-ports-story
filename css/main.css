@@ -4,13 +4,25 @@ html {
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-    background: #283446;
+    background-color: #22293d;
+/*    background: #283446;
     background-repeat:no-repeat;
     background: -webkit-linear-gradient(#36455b, #283446);
     background: -moz-linear-gradient(#36455b, #283446);
     background: -ms-linear-gradient(#36455b, #283446);
     background: -o-linear-gradient(#36455b, #283446);
-    background: linear-gradient(#36455b, #283446);
+    background: linear-gradient(#36455b, #283446);*/
+}
+
+#linechart canvas {
+	display: inline-block;
+	width: 80%;
+	margin-top: 20px;
+	padding: 10px;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    background-color: #22293d;
 }
 
 b {
@@ -23,7 +35,7 @@ b {
 }
 
 #map {
-	border-radius: 10px;
+	border-radius: 15px;
 	display: inline-block;
 	height: 500px;
 	width: 90%;
@@ -61,7 +73,50 @@ b {
 	border: 1px solid rgba(20,20,20,1);
 }
 
-#slider {
-	margin-top: 10px;
+.slider {
+	-webkit-appearance: none;
 	width: 80%;
+	margin-top: 20px;
+	height: 20px;
+	border-radius: 10px;
+	background: #283446; /* Fallback */
+	background: linear-gradient(#36455b, #283446);
+	border: 1px solid rgba(20,20,20,0.8);
+	outline: none;
+	opacity: 0.9;
+	-webkit-transition: .2s;
+	transition: opacity .2s;
+}
+.slider:hover {
+	opacity: 1;
+}
+.slider::-webkit-slider-thumb {
+	cursor: pointer;
+	border: 1px solid rgba(20,20,20,1);
+	-webkit-appearance: none;
+	appearance: none;
+	border-radius: 40px;
+	width: 40px;
+	height: 40px;
+	background: #283446; /* Fallback */
+	background: linear-gradient(#36455b, #283446);
+	-webkit-box-shadow: 3px 3px 3px 0px rgba(0,0,0,0.75);
+	box-shadow: 3px 3px 3px 0px rgba(0,0,0,0.75);
+}
+.slider::-moz-range-thumb {
+	cursor: pointer;
+	border: 1px solid rgba(20,20,20,1);
+	border-radius: 40px;
+	width: 40px;
+	height: 40px;
+	background: #283446; /* Fallback */
+	background: linear-gradient(#36455b, #283446);
+	-moz-box-shadow: 3px 3px 3px 0px rgba(0,0,0,0.75);
+	box-shadow: 3px 3px 3px 0px rgba(0,0,0,0.75);
+}
+.slider:hover {
+	box-shadow: 0px 0px 5px rgba(80,180,255,0.6);
+}
+.slider:active {
+	box-shadow: 0px 0px 5px rgba(80,180,255,1);
 }

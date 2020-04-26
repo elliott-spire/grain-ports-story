@@ -1,4 +1,4 @@
-window.onload = function() {
+window.addEventListener('load', function() {
 
     mapboxgl.accessToken = 'pk.eyJ1IjoibWF4LWFib3VjaGFyLXNwaXJlIiwiYSI6ImNrNjJyMHJsMjBoZWIzZW9mNjN4bXNnOHcifQ.zrek-R9VqJNAdnKK7SyZVg';
 
@@ -73,4 +73,4 @@ window.onload = function() {
             bearing: 0
         });
     }
-}
+});
