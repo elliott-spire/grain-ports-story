@@ -3,7 +3,7 @@ function changeTimeDisplay(timestring) {
     document.getElementById('timedisplay').innerHTML = timestring;
 }
 
-// iterate through WMS images and visible vessels in a loop
+// iterate through precipitation data time windows in a loop
 var playTime = function(init) {
   pauseTime();
   // var frameRate = 0.5; // 1 frame per 2 seconds
@@ -32,15 +32,32 @@ var playTime = function(init) {
 // stop animation
 var pauseTime = function() {
   if (window.Animation !== null) {
-    window.clearInterval(window.WMS_Animation);
+    window.clearInterval(window.Animation);
     window.Animation = null;
   }
 };
 
+// wait for page to load before adding event handlers
 window.addEventListener('load', function() {
-    // handler for WMS time slider while it is moving
+
+    // handler for time slider while it is moving
     document.getElementById('slider').oninput = function() {
         var index = String(this.value);
         showData(index);
     };
+
+    // handler for time slider while it is moving
+    var playpause = document.getElementById('playpause');
+    function togglePlay() {
+        if (playpause.className == 'play') {
+            playpause.className = 'pause';
+            playTime();
+        } else {
+            playpause.className = 'play';
+            pauseTime();
+        }
+    };
+    playpause.onclick = togglePlay;
+    document.getElementById('timedisplay').onclick = togglePlay;
+
 });

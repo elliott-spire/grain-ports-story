@@ -25,6 +25,8 @@ window.addEventListener('load', function() {
         }
         // initialize first layer
         showData('0');
+        // show display time
+        document.getElementById('time').style.display = 'block';
         // start time playback
         playTime();
     });
