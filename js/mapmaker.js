@@ -25,13 +25,15 @@ window.addEventListener('load', function() {
         }
         // initialize first layer
         showData('0');
+        // start time playback
+        playTime();
     });
 
     document.getElementById('neworleans').onclick = function() {
         window.map.flyTo({
             center: [-90.071533, 29.951065],
             zoom: 7.0,
-            pitch: 40.00,
+            pitch: 20.00,
             bearing: 0
         });
     }
@@ -40,7 +42,7 @@ window.addEventListener('load', function() {
         window.map.flyTo({
             center: [-95.358421, 29.749907],
             zoom: 7.0,
-            pitch: 40.00,
+            pitch: 20.00,
             bearing: 0
         });
     }
@@ -49,7 +51,7 @@ window.addEventListener('load', function() {
         window.map.flyTo({
             center: [-76.609383, 39.299236],
             zoom: 7.0,
-            pitch: 40.00,
+            pitch: 20.00,
             bearing: 0
         });
     }
@@ -58,7 +60,7 @@ window.addEventListener('load', function() {
         window.map.flyTo({
             center: [-76.285873, 36.850769],
             zoom: 7.0,
-            pitch: 40.00,
+            pitch: 20.00,
             bearing: 0
         });
     }
@@ -67,7 +69,7 @@ window.addEventListener('load', function() {
         window.map.flyTo({
             center: [-122.335167, 47.608013],
             zoom: 7.0,
-            pitch: 40.00,
+            pitch: 20.00,
             bearing: 0
         });
     }
@@ -76,7 +78,7 @@ window.addEventListener('load', function() {
         window.map.flyTo({
             center: [-122.676483, 45.523064],
             zoom: 7.0,
-            pitch: 40.00,
+            pitch: 20.00,
             bearing: 0
         });
     }

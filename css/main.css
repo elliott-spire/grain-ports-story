@@ -51,6 +51,7 @@ b {
 #buttons button {
 	outline: none;
 	padding: 10px;
+	font-size: 100%;
 	margin: 1px;
 	background: rgba(80,80,80,1);
 	color: rgba(200,200,200,1);

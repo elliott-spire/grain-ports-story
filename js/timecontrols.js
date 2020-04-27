@@ -1,43 +1,46 @@
+// change the text above the time slider
 function changeTimeDisplay(timestring) {
     document.getElementById('timedisplay').innerHTML = timestring;
 }
 
-window.addEventListener('load', function() {
+// iterate through WMS images and visible vessels in a loop
+var playTime = function(init) {
+  pauseTime();
+  // var frameRate = 0.5; // 1 frame per 2 seconds
+  // var frameRate = 1.0; // 1 frame per second
+  var frameRate = 4.0; // 1 frame per second
+  window.Animation = window.setInterval(function() {
+        // get the slider's current position
+        var slider = document.getElementById('slider');
+        var index = Number(slider.value);
+        // check index value to determine whether to
+        // iterate forwards or loop to beginning
+        if (index < 28) {
+            // increase index by 1
+            index += 1;
+        } else {
+            // reset slider to starting position
+            index = 0;
+        }
+        // set the slider position
+        slider.value = index;
+        // show the precipitation data
+        showData(String(index));
+  }, 1000 / frameRate);
+};
 
+// stop animation
+var pauseTime = function() {
+  if (window.Animation !== null) {
+    window.clearInterval(window.WMS_Animation);
+    window.Animation = null;
+  }
+};
+
+window.addEventListener('load', function() {
     // handler for WMS time slider while it is moving
     document.getElementById('slider').oninput = function() {
         var index = String(this.value);
-        // var timestring = DATA[index]['time'];
-        // changeTimeDisplay(timestring);
         showData(index);
-        // if (window.WMS_Animation_Times.length > 0) {
-        //     // use the integer value of the slider
-        //     // to set the WMS time index
-        //     var time = window.WMS_Animation_Times[this.value];
-        //     // only change the time display, don't actually set the time
-        //     changeTimeDisplay(time);
-        // } else {
-        //     // reset slider to starting position
-        //     // if no WMS times are available
-        //     this.value = 0;
-        // }
     };
-
-    // // handler for WMS time slider change (after mouse up)
-    // document.getElementById('slider').onchange = function() {
-    //     // console.log('onchange', this.value)
-    //     var index = String(this.value);
-    //     // change the visible precipitation data
-    //     showData(index);
-    //     // if (window.WMS_Animation_Times.length > 0) {
-    //     //     // use the integer value of the slider
-    //     //     // to set the WMS time index
-    //     //     setWMSTime(window.WMS_Animation_Times[this.value]);
-    //     // } else {
-    //     //     // reset slider to starting position
-    //     //     // if no WMS times are available
-    //     //     this.value = 0;
-    //     // }
-    // };
-
 });

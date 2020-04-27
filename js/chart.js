@@ -8,6 +8,8 @@ var config = {
                 fill: false,
                 backgroundColor: window.chartColors.red,
                 borderColor: window.chartColors.red,
+                pointRadius: 4,
+                pointHoverRadius: 5,
                 data: []
             },
             {
@@ -15,6 +17,8 @@ var config = {
                 fill: false,
                 backgroundColor: window.chartColors.green,
                 borderColor: window.chartColors.green,
+                pointRadius: 4,
+                pointHoverRadius: 5,
                 data: []
             },
             {
@@ -22,6 +26,8 @@ var config = {
                 fill: false,
                 backgroundColor: window.chartColors.yellow,
                 borderColor: window.chartColors.yellow,
+                pointRadius: 4,
+                pointHoverRadius: 5,
                 data: []
             },
             {
@@ -29,6 +35,8 @@ var config = {
                 fill: false,
                 backgroundColor: window.chartColors.blue,
                 borderColor: window.chartColors.blue,
+                pointRadius: 4,
+                pointHoverRadius: 5,
                 data: []
             },
             {
@@ -36,6 +44,8 @@ var config = {
                 fill: false,
                 backgroundColor: window.chartColors.orange,
                 borderColor: window.chartColors.orange,
+                pointRadius: 4,
+                pointHoverRadius: 5,
                 data: []
             },
             {
@@ -43,6 +53,8 @@ var config = {
                 fill: false,
                 backgroundColor: window.chartColors.purple,
                 borderColor: window.chartColors.purple,
+                pointRadius: 4,
+                pointHoverRadius: 5,
                 data: []
             }
         ]
@@ -54,7 +66,7 @@ var config = {
             text: 'Average Regional Precipitation (mm)',
             // fontColor: '#FFF',
             fontSize: 16
-        },
+        }
     }
 };
 
@@ -66,7 +78,6 @@ window.addEventListener('load', function() {
 
     var keys = Object.keys(AVERAGES);
     for (var i = 0; i < keys.length; i++) {
-
         var key = keys[i];
         var data = AVERAGES[key];
         config.data.labels.push(key);
