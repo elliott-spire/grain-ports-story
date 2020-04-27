@@ -86,7 +86,7 @@ function initializePrecipData(data, i) {
             // based on the feature found.
             popup
                 .setLngLat(coordinates)
-                .setHTML('Total Precip.<br><b>' + tp + '</b> mm')
+                .setHTML('Precipitation:<br><b>' + tp + '</b> mm')
                 .addTo(map);
         }
     });
