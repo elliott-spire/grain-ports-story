@@ -8,14 +8,14 @@ var playTime = function(init) {
   pauseTime();
   // var frameRate = 0.5; // 1 frame per 2 seconds
   // var frameRate = 1.0; // 1 frame per second
-  var frameRate = 4.0; // 1 frame per second
+  var frameRate = 5.0; // 1 frame per second
   window.Animation = window.setInterval(function() {
         // get the slider's current position
         var slider = document.getElementById('slider');
         var index = Number(slider.value);
         // check index value to determine whether to
         // iterate forwards or loop to beginning
-        if (index < 28) {
+        if (index < window.TimeIndexLength) {
             // increase index by 1
             index += 1;
         } else {
