@@ -87,7 +87,7 @@ function initializePrecipData(raw_data, timestring, index) {
     // https://blog.mapbox.com/introducing-data-driven-styling-in-mapbox-gl-js-f273121143c3
 
     var popup = new mapboxgl.Popup({
-        // className: 'precip-popup',
+        className: 'precip-popup',
         closeButton: false,
         closeOnClick: false,
         closeOnMove: true
