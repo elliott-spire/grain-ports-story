@@ -1,6 +1,6 @@
 function showData(index) {
     // change display time
-    var timestring = DATA[index]['time'];
+    var timestring = window.TimeIndex[index];
     changeTimeDisplay(timestring);
     // get layer id
     var layer_id = 'layer' + index;
@@ -14,15 +14,40 @@ function showData(index) {
     window.CurrentLayer = layer_id;
 }
 
-function initializePrecipData(data, i) {
+function initializePrecipData(raw_data, timestring, index) {
 
-    var source_id = 'source' + i;
-    var layer_id = 'layer' + i;
+    var source_id = 'source' + index;
+    var layer_id = 'layer' + index;
+
+    // initialize geojson object
+    var geojson = {
+        'type': 'FeatureCollection',
+        'features': []
+    };
+
+    // build point features for geojson object
+    raw_data.forEach(function(d) {
+        var lon = d[0];
+        var lat = d[1];
+        var precip = d[2];
+        var point = {
+            'type': 'Feature',
+            'properties': {
+                'tp': precip,
+                'time': timestring
+            },
+            'geometry': {
+                'type': 'Point',
+                'coordinates': [lon, lat]
+            }
+        };
+        geojson['features'].push(point);
+    });
 
     // add data
 	window.map.addSource(source_id, {
       type: 'geojson',
-      data: data
+      data: geojson
     });
 
     // add data layers
@@ -35,8 +60,8 @@ function initializePrecipData(data, i) {
             'circle-radius': {
                 'base': 1.75,
                 'stops': [
-                    [5, 3],
-                    [10, 25],
+                    [5, 4],
+                    [10, 40],
                     [22, 200]
                 ]
             },
@@ -50,7 +75,8 @@ function initializePrecipData(data, i) {
                     [20, 'rgba(90,120,240,0.6)'],
                     [30, 'rgba(60,90,210,0.8)'],
                     [40, 'rgba(40,60,190,1.0)'],
-                    [50, 'rgba(5,10,170,1.0)']
+                    [50, 'rgba(5,10,170,1.0)'],
+                    [100, 'rgba(0,0,255,1.0)']
                 ]
             },
             // initialize as invisible

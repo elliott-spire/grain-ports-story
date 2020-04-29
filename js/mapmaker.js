@@ -17,6 +17,8 @@ window.addEventListener('load', function() {
     window.map.addControl(new mapboxgl.NavigationControl());
 
     window.map.on('load', function() {
+        // initialize time index object
+        window.TimeIndex = {};
         // get number of time windows
         window.TimeIndexLength = Object.keys(DATA).length - 1;
         // set time slider's maximum value
@@ -24,8 +26,12 @@ window.addEventListener('load', function() {
         // initialize all the data layers
         for (var i=0; i <= window.TimeIndexLength; i++) {
             var index = String(i);
-            var data = DATA[index]['data'];
-            initializePrecipData(data, index);
+            var timestring = Object.keys(DATA)[i];
+            var data = DATA[timestring];
+            // add to time index for easy lookup
+            window.TimeIndex[index] = timestring;
+            // turn raw data into map layers
+            initializePrecipData(data, timestring, index);
         }
         // initialize first layer
         showData('0');
