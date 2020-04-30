@@ -8,10 +8,16 @@ window.addEventListener('load', function() {
         center: [-98, 37],
         zoom: 3.5,
         pitch: 40.00,
-        bearing: 0
+        bearing: 0,
+        attributionControl: false
         // scrollZoom: false,
         // transformRequest: transformRequest
     });
+
+    // Attribution required, but here we make it smaller
+    window.map.addControl(new mapboxgl.AttributionControl({
+        compact: true
+    }));
 
     // Add zoom and rotation controls to the map.
     window.map.addControl(new mapboxgl.NavigationControl());
