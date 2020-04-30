@@ -33,12 +33,13 @@ window.addEventListener('load', function() {
             // turn raw data into map layers
             initializePrecipData(data, timestring, index);
         }
-        // initialize first layer
-        showData('0');
+        // initialize first layer and time slider
+        // (should be tuned based on current data)
+        initializeTime(8);
         // show display time
         document.getElementById('time').style.display = 'block';
         // start time playback
-        playTime();
+        // playTime();
     });
 
     document.getElementById('neworleans').onclick = function() {

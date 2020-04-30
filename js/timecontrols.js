@@ -8,7 +8,7 @@ var playTime = function(init) {
   pauseTime();
   // var frameRate = 0.5; // 1 frame per 2 seconds
   // var frameRate = 1.0; // 1 frame per second
-  var frameRate = 5.0; // 1 frame per second
+  var frameRate = 4.0;
   window.Animation = window.setInterval(function() {
         // get the slider's current position
         var slider = document.getElementById('slider');
@@ -36,6 +36,13 @@ var pauseTime = function() {
     window.Animation = null;
   }
 };
+
+// to be called on page load
+// initializing slider and data together
+function initializeTime(index) {
+    document.getElementById('slider').value = index
+    showData(String(index));
+}
 
 // wait for page to load before adding event handlers
 window.addEventListener('load', function() {
